@@ -2,5 +2,27 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>anaconda/renovate-config"
-  ]
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "Dockerfile"
+      ],
+      "dateSourceTemplate": "custom.miniconda",
+      "matchStrings": [
+        "# renovate: miniconda\\sARG MINICONDA_URL_\\w+=[\"']https:\\/\\/repo\\.anaconda\\.com\\/miniconda\\/Miniconda\\d-(?<currentValue>py\\d+_[\\d\\.]+\\-\\d+?)-(?<depName>[\\w\\-\\.]+?)[\"']\\sARG SHA256SUM_\\w+=[\"'](?<currentDigest>[a-f\\d]+?)[\"']\\s"
+      ]
+    }
+  ],
+  "customDatesources": {
+    "miniconda": {
+      "defaultRegistryUrlTemplate": "https://repo.anaconda.com/miniconda/.files.json",
+      "transformTemplates": [
+        "$map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-{{ depName }}`.sha256}).$keys(), function($v) { { \"file\": $v, \"digest\": $lookup($, $v).sha256, \"version\": $v.$split(\"-\")[1], \"changeLog\": \"https://docs.anaconda.com/free/miniconda/miniconda-release-notes.html#\" & $substringAfter($v, \"_\").$replace(\".\", \"-\")"
+        ]
+    }
+})"
+    }
+  }
 }
