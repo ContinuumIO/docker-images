@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "customDatesources": {
+  "customDatasources": {
     "miniconda": {
       "defaultRegistryUrlTemplate": "https://repo.anaconda.com/miniconda/.files.json",
       "transformTemplates": [
