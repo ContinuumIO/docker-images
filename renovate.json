@@ -19,7 +19,7 @@
     "miniconda": {
       "defaultRegistryUrlTemplate": "https://repo.anaconda.com/miniconda/.files.json",
       "transformTemplates": [
-        "$map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-{{ depName }}`.sha256}).$keys(), function($v) { { \"file\": $v, \"digest\": $lookup($, $v).sha256, \"version\": $v.$split(\"-\")[1], \"changeLog\": \"https://docs.anaconda.com/free/miniconda/miniconda-release-notes.html#\" & $substringAfter($v, \"_\").$replace(\".\", \"-\")"
+        "$map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-{{ depName }}`.sha256}).$keys(), function($v) { { \"file\": $v, \"digest\": $lookup($, $v).sha256, \"version\": $v.$split(\"-\")[1], \"changeLog\": \"https://docs.anaconda.com/free/miniconda/miniconda-release-notes.html#\" & $substringAfter($v, \"_\").$replace(\".\", \"-\") } }"
         ]
     }
 })"
