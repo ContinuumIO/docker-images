@@ -9,7 +9,7 @@
       "fileMatch": [
         "Dockerfile"
       ],
-      "dateSourceTemplate": "custom.miniconda",
+      "dataSourceTemplate": "custom.miniconda",
       "matchStrings": [
         "# renovate: miniconda\\sARG MINICONDA_URL_\\w+=[\"']https:\\/\\/repo\\.anaconda\\.com\\/miniconda\\/Miniconda\\d-(?<currentValue>py\\d+_[\\d\\.]+\\-\\d+?)-(?<depName>[\\w\\-\\.]+?)[\"']\\sARG SHA256SUM_\\w+=[\"'](?<currentDigest>[a-f\\d]+?)[\"']\\s"
       ]
