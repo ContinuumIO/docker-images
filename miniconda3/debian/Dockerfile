@@ -27,29 +27,29 @@ ENV PATH /opt/conda/bin:$PATH
 CMD [ "/bin/bash" ]
 
 # Leave these args here to better use the Docker build cache
-# renovate: miniconda
-ARG MINICONDA_URL_LINUX64="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-x86_64.sh"
+# renovate: datasource=custom.miniconda
+ARG INSTALLER_URL_LINUX64="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-x86_64.sh"
 ARG SHA256SUM_LINUX64="5b3cefe534e23541f5f703f40d4818e361c3615dbf14651a0f29554c3fc3d0fd"
-# renovate: miniconda
-ARG MINICONDA_URL_S390X="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-s390x.sh"
+# renovate: datasource=custom.miniconda
+ARG INSTALLER_URL_S390X="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-s390x.sh"
 ARG SHA256SUM_S390X="04586c734987a39114b81384014c2cfa89360c518371b6fa249d3062efca27fe"
-# renovate: miniconda
-ARG MINICONDA_URL_AARCH64="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-aarch64.sh"
+# renovate: datasource=custom.miniconda
+ARG INSTALLER_URL_AARCH64="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-1-Linux-aarch64.sh"
 ARG SHA256SUM_AARCH64="63c06a1974695e50bbe767a030903d169e637e42d5b7b6d30876b19a01fbbad8"
 
 RUN set -x && \
     UNAME_M="$(uname -m)" && \
     if [ "${UNAME_M}" = "x86_64" ]; then \
-        MINICONDA_URL="${MINICONDA_URL_LINUX64}"; \
+        INSTALLER_URL="${INSTALLER_URL_LINUX64}"; \
         SHA256SUM="${SHA256SUM_LINUX64}"; \
     elif [ "${UNAME_M}" = "s390x" ]; then \
-        MINICONDA_URL="${MINICONDA_URL_S390X}"; \
+        INSTALLER_URL="${INSTALLER_URL_S390X}"; \
         SHA256SUM="${SHA256SUM_S390X}"; \
     elif [ "${UNAME_M}" = "aarch64" ]; then \
-        MINICONDA_URL="${MINICONDA_URL_AARCH64}"; \
+        INSTALLER_URL="${INSTALLER_URL_AARCH64}"; \
         SHA256SUM="${SHA256SUM_AARCH64}"; \
     fi && \
-    wget "${MINICONDA_URL}" -O miniconda.sh -q && \
+    wget "${INSTALLER_URL}" -O miniconda.sh -q && \
     echo "${SHA256SUM} miniconda.sh" > shasum && \
     sha256sum --check --status shasum; fi && \
     mkdir -p /opt && \
