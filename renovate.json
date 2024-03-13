@@ -9,7 +9,7 @@
       "fileMatch": [
         "Dockerfile"
       ],
-      "dataSourceTemplate": "custom.miniconda",
+      "datasourceTemplate": "custom.miniconda",
       "matchStrings": [
         "# renovate: miniconda\\sARG MINICONDA_URL_\\w+=[\"']https:\\/\\/repo\\.anaconda\\.com\\/miniconda\\/Miniconda\\d-(?<currentValue>py\\d+_[\\d\\.]+\\-\\d+?)-(?<depName>[\\w\\-\\.]+?)[\"']\\sARG SHA256SUM_\\w+=[\"'](?<currentDigest>[a-f\\d]+?)[\"']\\s"
       ],
@@ -20,7 +20,7 @@
       "fileMatch": [
         "Dockerfile"
       ],
-      "dataSourceTemplate": "custom.anaconda",
+      "datasourceTemplate": "custom.anaconda",
       "matchStrings": [
         "# renovate: anaconda\\sARG ANACONDA_URL_\\w+=[\"']https:\\/\\/repo\\.anaconda\\.com\\/archive\\/Anaconda\\d-(?<currentValue>[\\d\\.]+\\-\\d+?)-(?<depName>[\\w\\-\\.]+?)[\"']\\sARG SHA256SUM_\\w+=[\"'](?<currentDigest>[a-f\\d]+?)[\"']\\s"
       ]
