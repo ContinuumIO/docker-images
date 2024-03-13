@@ -31,7 +31,7 @@
     "miniconda": {
       "defaultRegistryUrlTemplate": "https://repo.anaconda.com/miniconda/.files.json",
       "transformTemplates": [
-        "{ \"releases\": [$map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-Linux-s390x.sh`.sha256}).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1] } }) }"
+        "{ \"releases\": $map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-Linux-s390x.sh`.sha256}).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1] } }) }"
       ]
     },
     "anaconda": {
