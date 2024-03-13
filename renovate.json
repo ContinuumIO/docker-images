@@ -3,6 +3,16 @@
   "extends": [
     "github>anaconda/renovate-config"
   ],
+  "packageRules": [
+    {
+      "matchDatasources": ["custom.anaconda"],
+      "groupName": "Anaconda Distribution"
+    },
+    {
+      "matchDatasources": ["custom.miniconda"],
+      "groupName": "Miniconda"
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
@@ -28,15 +38,5 @@
         "{ \"releases\": $map($sift($, function($v, $k){ $k.$contains(\"{{ packageName }}\") } ).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1], \"changeLogUrl\": \"https://docs.anaconda.com/free/anaconda/release-notes/#anaconda-\" & ($contains( $v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1]).$replace(\".\", \"-\") } } ) }"
       ]
     }
-  },
-  "packageRules": [
-    {
-      "matchDatasources": ["custom.anaconda"],
-      "replacementName": "Anaconda Distribution"
-    },
-    {
-      "matchDatasources": ["custom.miniconda"],
-      "replacementName": "Miniconda"
-    }
-  ]
+  }
 }
