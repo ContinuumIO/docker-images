@@ -6,11 +6,13 @@
   "packageRules": [
     {
       "matchDatasources": ["custom.anaconda"],
-      "groupName": "Anaconda Distribution"
+      "groupName": "Anaconda Distribution",
+      "separateMajorMinor": false
     },
     {
       "matchDatasources": ["custom.miniconda"],
-      "groupName": "Miniconda"
+      "groupName": "Miniconda",
+      "separateMajorMinor": false
     }
   ],
   "customManagers": [
