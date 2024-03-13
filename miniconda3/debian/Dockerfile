@@ -51,7 +51,7 @@ RUN set -x && \
     fi && \
     wget "${INSTALLER_URL}" -O miniconda.sh -q && \
     echo "${SHA256SUM} miniconda.sh" > shasum && \
-    sha256sum --check --status shasum; fi && \
+    sha256sum --check --status shasum && \
     mkdir -p /opt && \
     bash miniconda.sh -b -p /opt/conda && \
     rm miniconda.sh shasum && \

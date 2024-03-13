@@ -41,13 +41,13 @@ RUN set -x && \
     UNAME_M="$(uname -m)" && \
     if [ "${UNAME_M}" = "x86_64" ]; then \
         INSTALLER_URL=${INSTALLER_URL_LINUX64}; \
-        SHASUM256=${SHASUM256_LINUX64}; \
+        SHA256SUM=${SHA256SUM_LINUX64}; \
     elif [ "${UNAME_M}" = "s390x" ]; then \
         INSTALLER_URL=${INSTALLER_URL_S390X}; \
-        SHASUM256=${SHASUM256_S390X}; \
+        SHA256SUM=${SHA256SUM_S390X}; \
     elif [ "${UNAME_M}" = "aarch64" ]; then \
         INSTALLER_URL=${INSTALLER_URL_AARCH64}; \
-        SHASUM256=${SHASUM256_AARCH64}; \
+        SHA256SUM=${SHA256SUM_AARCH64}; \
     fi && \
     wget "${INSTALLER_URL}" -O anaconda.sh -q && \
     echo "${SHA256SUM} anaconda.sh" > shasum && \
