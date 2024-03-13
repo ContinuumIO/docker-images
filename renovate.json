@@ -37,7 +37,7 @@
     "anaconda": {
       "defaultRegistryUrlTemplate": "https://repo.anaconda.com/archive/.files.json",
       "transformTemplates": [
-        "{ \"releases\": $map($sift($, function($v, $k){ $k.$contains(\"s390x.sh\") } ).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1], \"changeLogUrl\": \"https://docs.anaconda.com/free/anaconda/release-notes/#anaconda-\" & ($contains( $v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1]).$replace(\".\", \"-\") } } ) }"
+        "{ \"releases\": $map($sift($, function($v, $k){ $k.$contains(\"{{ depName }}\") } ).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1], \"changeLogUrl\": \"https://docs.anaconda.com/free/anaconda/release-notes/#anaconda-\" & ($contains( $v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1]).$replace(\".\", \"-\") } } ) }"
       ]
     }
   }
