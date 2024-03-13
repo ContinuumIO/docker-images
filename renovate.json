@@ -13,7 +13,7 @@
       "matchStrings": [
         "# renovate: miniconda\\sARG MINICONDA_URL_\\w+=[\"']https:\\/\\/repo\\.anaconda\\.com\\/miniconda\\/Miniconda\\d-(?<currentValue>py\\d+_[\\d\\.]+\\-\\d+?)-(?<depName>[\\w\\-\\.]+?)[\"']\\sARG SHA256SUM_\\w+=[\"'](?<currentDigest>[a-f\\d]+?)[\"']\\s"
       ],
-      "versioning": "regex:^py\\d+_(?<major>\\d+)\\.(?<minor>\\d+?)\\.(?<patch>\\d+)(\\-(?<compatibility>\\d+?))?$"
+      "versioning": "regex:^py\\d+_(?<major>\\d+)\\.(?<minor>\\d+?)\\.(?<patch>\\d+)(\\-(?<build>\\d+?))?$"
     },
     {
       "customType": "regex",
@@ -32,7 +32,7 @@
       "transformTemplates": [
         "{ \"releases\": [$map($sift($, function($v, $k) { $not($k.$contains(\"latest\")) and $v.sha256 = $.`Miniconda3-latest-Linux-s390x.sh`.sha256}).$keys(), function($v) { { \"digest\": $lookup($, $v).sha256, \"version\": $contains($v.$split(\"-\")[2], /^[0-9]+$/) ? $v.$split(\"-\")[1] & \"-\" & $v.$split(\"-\")[2] : $v.$split(\"-\")[1] } }) }"
       ],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+?)(\\-(?<compatibility>\\d+?))?$"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+?)(\\-(?<build>\\d+?))?$"
     },
     "anaconda": {
       "defaultRegistryUrlTemplate": "https://repo.anaconda.com/archive/.files.json",
