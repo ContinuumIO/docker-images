@@ -79,6 +79,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+# renovate: datasource=custom.miniconda depName=Linux-x86_64.sh
 ARG MC_VER=py39_23.10.0-1
 
 RUN curl -sSL -o /tmp/miniconda.sh \
