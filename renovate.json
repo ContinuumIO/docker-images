@@ -35,7 +35,8 @@
       "matchDatasources": ["custom.miniconda"],
       "groupName": "Miniconda",
       "commitMessageTopic": "Miniconda",
-      "separateMajorMinor": false
+      "separateMajorMinor": false,
+      "matchUpdateTypes": ["major", "minor", "patch"]
     }
   ],
   "customDatasources": {
