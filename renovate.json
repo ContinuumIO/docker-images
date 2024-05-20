@@ -33,8 +33,8 @@
         "This group will bundle all installer architectures into one PR."
       ],
       "matchDatasources": ["custom.miniconda"],
-      "groupName": "Miniconda",
-      "commitMessageTopic": "Miniconda",
+      "groupName": "Miniconda installer",
+      "commitMessageTopic": "Miniconda installer",
       "separateMajorMinor": false,
       "matchUpdateTypes": ["major", "minor", "patch"]
     }
