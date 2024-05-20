@@ -19,16 +19,6 @@
   "packageRules": [
     {
       "description": [
-        "Anaconda Distribution installer.",
-        "This group will bundle all installer architectures into one PR."
-      ],
-      "matchDatasources": ["custom.anaconda_installer"],
-      "groupName": "Anaconda Distribution",
-      "commitMessageTopic": "Anaconda Distribution",
-      "separateMajorMinor": false
-    },
-    {
-      "description": [
         "Miniconda installer.",
         "This group will bundle all installer architectures into one PR."
       ],
