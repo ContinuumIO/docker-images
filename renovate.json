@@ -27,6 +27,7 @@
       "groupName": "Miniconda installer",
       "commitMessageTopic": "Miniconda installer",
       "separateMajorMinor": false,
+      "rangeStrategy": "pin",
       "versioning": "regex:^(py\\d+_)?(?<major>\\d+)\\.(?<minor>\\d+)(\\.(?<patch>\\d+))?(\\-(?<build>\\d+))?$"
     }
   ],
